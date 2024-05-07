@@ -14,7 +14,7 @@ def transfer_in():
             uuid = item['uuid']
             sn = item['sn']
             data = item['data']
-
+            warehouse=item[0]['warehouse']
             # Check if uuid is a specific value, if yes, return success without making a request
             if sn == "in-start":
                 print('2收到了rfid,Satart-in的数据')
@@ -32,7 +32,7 @@ def transfer_in():
                 # Add additional fields or modify existing ones if needed
                 payload['data'][0].update({
                     "status": "OK",
-                    "warehouse": "12000",
+                    "warehouse": warehouse,
                     "location": "A01"
                 })
 
