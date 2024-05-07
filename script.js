@@ -43,7 +43,9 @@
 // setInterval(fetchDataAndUpdateTable, 5000);
 
 async function fetchDataAndUpdateTable() {
+
     try {
+
 // 发送 POST 请求
         fetch('http://127.0.0.1:5000/post_select_data', {
             method: 'POST', // 指定请求方法为 POST
@@ -60,8 +62,8 @@ async function fetchDataAndUpdateTable() {
                 data.forEach(function (item) {
                     var row = '<tr>';
                     row += '<td>' + item.id + '</td>';
-                    row += '<td>' + (item.shidu === null ? 'null' : item.shidu) + '</td>';
-                    row += '<td>' + item.wendu + '</td>';
+                    row += '<td>' + (item.shidu === null ? 'null' : item.shidu) +'℃'+ '</td>';
+                    row += '<td>' + item.wendu +'%'+'</td>';
                     row += '</tr>';
                     tableBody.innerHTML += row;
                 });
@@ -72,6 +74,8 @@ async function fetchDataAndUpdateTable() {
     }
 
 }
+
+
 // 页面加载时立即调用函数开始获取数据并更新表格
 fetchDataAndUpdateTable();
 
